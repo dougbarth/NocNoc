@@ -6,3 +6,6 @@ iframe {
   font-size: 200%; 
 }
 
+.dashboard h1 {
+  margin: 0.5em 0;
+}
