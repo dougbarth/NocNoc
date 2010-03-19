@@ -1,7 +1,6 @@
 class DashboardController < ApplicationController
   def index
-    @initial_id = 0
-    @initial_title, @initial_url = panel_urls.first
+    @initial_panel = Panel.first
   end
 
   def refresh

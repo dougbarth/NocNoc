@@ -1,0 +1,24 @@
+<h1>Editing panel</h1>
+
+<% form_for(@panel) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </p>
+  <p>
+    <%= f.label :sequence %><br />
+    <%= f.text_field :sequence %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @panel %> |
+<%= link_to 'Back', panels_path %>

@@ -1,10 +1,10 @@
 <div>
-  <h1 id="title"><%= @initial_title %></h1>
-  <iframe id="panel" width="100%" height="100%" src="<%= @initial_url %>">
+  <h1 id="title"><%= @initial_panel.name %></h1>
+  <iframe id="panel" width="100%" height="100%" src="<%= @initial_panel.url %>">
   </iframe>
 </div>
 
 <% javascript_tag do -%>
-  current_id = <%= @initial_id %>
+  current_id = <%= @initial_panel.id %>
 <% end -%>
 <%= periodically_call_remote(:url => {:action => :refresh}, :with => '"current_id=" + current_id') %>
