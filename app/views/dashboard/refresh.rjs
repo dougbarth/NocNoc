@@ -1,0 +1,1 @@
+page['panel'].src = @next_url
