@@ -45,7 +45,7 @@ class PanelsController < ApplicationController
     respond_to do |format|
       if @panel.save
         flash[:notice] = 'Panel was successfully created.'
-        format.html { redirect_to(@panel) }
+        format.html { redirect_to(panels_path) }
         format.xml  { render :xml => @panel, :status => :created, :location => @panel }
       else
         format.html { render :action => "new" }
@@ -62,7 +62,7 @@ class PanelsController < ApplicationController
     respond_to do |format|
       if @panel.update_attributes(params[:panel])
         flash[:notice] = 'Panel was successfully updated.'
-        format.html { redirect_to(@panel) }
+        format.html { redirect_to(panels_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
