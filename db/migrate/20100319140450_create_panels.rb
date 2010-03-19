@@ -3,7 +3,7 @@ class CreatePanels < ActiveRecord::Migration
     create_table :panels do |t|
       t.string :name
       t.string :url
-      t.integer :sequence
+      t.integer :position
 
       t.timestamps
     end

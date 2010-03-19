@@ -4,8 +4,8 @@ class DashboardController < ApplicationController
   end
 
   def refresh
-    @next_id = (params[:current_id].to_i + 1) % panel_urls.size
-    @next_title, @next_url = panel_urls[@next_id]
+    @current_panel = Panel.find(params[:current_id])
+    @next_panel = @current_panel.last? ? Panel.first : @current_panel.lower_item
   end
 
   def load_page
