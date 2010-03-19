@@ -1,6 +1,8 @@
 class DashboardController < ApplicationController
   def index
+    @panels = Panel.all
     @initial_panel = Panel.first
+    @page_width = params[:page_width] || 0
   end
 
   def refresh

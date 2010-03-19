@@ -1,10 +1,13 @@
-<div>
-  <h1 id="title"><%= @initial_panel.name %></h1>
-  <iframe id="panel" width="100%" height="100%" src="<%= @initial_panel.url %>">
-  </iframe>
-</div>
-
 <% javascript_tag do -%>
-  current_id = <%= @initial_panel.id %>
+  page_width = document.width;
+  if (page_width != <%= @page_width %>) {
+    document.location.href = "?page_width=" + page_width;
+  }
+  current_id = <%= @initial_panel.id %>;
+  new PeriodicalExecuter(refreshPanels, 5 * 60);
 <% end -%>
+
+<%= render :partial => 'panel', :collection => @panels %>
+
 <%= periodically_call_remote(:url => {:action => :refresh}, :with => '"current_id=" + current_id') %>
+
