@@ -4,4 +4,7 @@
   </iframe>
 </div>
 
-<%= periodically_call_remote(:url => {:action => :refresh}) %>
+<% javascript_tag do -%>
+  current_id = <%= @initial_id %>
+<% end -%>
+<%= periodically_call_remote(:url => {:action => :refresh}, :with => '"current_id=" + current_id') %>

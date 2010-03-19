@@ -1,14 +1,12 @@
 class DashboardController < ApplicationController
   def index
-    panel = panel_urls.first
-    @initial_title = panel.first
-    @initial_url = url_for(:action => :load_page, :page => panel.second)
+    @initial_id = 0
+    @initial_title, @initial_url = panel_urls.first
   end
 
   def refresh
-    panel = panel_urls.second
-    @next_title = panel.first
-    @next_url = url_for(:action => :load_page, :page => panel.second)
+    @next_id = (params[:current_id].to_i + 1) % panel_urls.size
+    @next_title, @next_url = panel_urls[@next_id]
   end
 
   def load_page
@@ -17,7 +15,7 @@ class DashboardController < ApplicationController
 
   private
   def panel_urls
-    [['Page 1', 'page1.html'],
-      ['Page 2', 'page2.html']]
+    [['Page 1', url_for(:action => :load_page, :page => 'page1.html')],
+      ['Page 2', url_for(:action => :load_page, :page => 'page2.html')]]
   end
 end
