@@ -1,5 +1,5 @@
 <% width = @page_width - 30 -%>
-<% hide_style = @initial_panel != panel ? {} : {:style => 'display: none'} -%>
+<% hide_style = @initial_panel != panel ? {:style => 'display: none'} : {} -%>
 <% div_for(panel, {:class => 'panel'}.merge(hide_style)) do -%>
   <h1><%= panel.name %></h1>
   <iframe scrolling="no" width="<%= width %>px" height="420px" src="<%= panel.url %>&height=400px&width=<%= width %>px">

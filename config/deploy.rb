@@ -10,6 +10,7 @@ role :app, "boc.local"                          # This may be the same as your `
 role :db,  "boc.local", :primary => true # This is where Rails migrations will run
 
 default_environment["PATH"] = "/usr/local/bin:/bin:/usr/bin"
+set :use_sudo, false
 
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
