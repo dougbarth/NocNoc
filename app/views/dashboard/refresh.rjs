@@ -1,3 +1,4 @@
 page[dom_id(@current_panel)].hide
 page[dom_id(@next_panel)].show
-page << "current_id = #{@next_panel.id}"
+page << "current_id = #{@next_panel.id};"
+page << "refreshPanel('#{dom_id(@next_panel)}');"

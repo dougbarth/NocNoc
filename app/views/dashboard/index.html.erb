@@ -4,12 +4,14 @@
     document.location.href = "?page_width=" + page_width;
   }
   current_id = <%= @initial_panel.id %>;
-  new PeriodicalExecuter(refreshPanels, 5 * 60);
+  //new PeriodicalExecuter(refreshPanels, 60);
 <% end -%>
 
 <div class="dashboard">
   <%= render :partial => 'panel', :collection => @panels %>
 </div>
 
-<%= periodically_call_remote(:url => refresh_path, :with => '"current_id=" + current_id') %>
+<%= periodically_call_remote(:url => refresh_path,
+                             :with => '"current_id=" + current_id',
+                             :frequency => 30) %>
 

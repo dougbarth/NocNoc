@@ -3,7 +3,11 @@
 
 function refreshPanels() {
   $$('.panel').each(function(panel) {
-      iframe = panel.down('iframe');
-      iframe.src = iframe.src;
+    refreshPanel(panel);
   });
+}
+
+function refreshPanel(panel) {
+  iframe = $(panel).down('iframe');
+  iframe.src = iframe.src;
 }
