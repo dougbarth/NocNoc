@@ -1,0 +1,19 @@
+uuid.state
+public/img
+db/development_structure.sql
+db/schema.rb
+tmp/*
+coverage*
+log/*
+public/javascripts/cache
+public/stylesheets/cache
+public/data
+*.swp
+
+# TODO maybe these directories should be merged? public/upload seems to be the
+# most recently used.
+public/uploads
+public/upload
+
+app/views/web_form_themes
+public/web_form_themes
