@@ -1,6 +1,3 @@
-#page['title'].innerHTML = @next_panel.name
-#page['panel'].src = @next_panel.url
-#page << "current_id = #{@next_panel.id}"
 page[dom_id(@current_panel)].hide
 page[dom_id(@next_panel)].show
 page << "current_id = #{@next_panel.id}"

@@ -9,5 +9,5 @@
 
 <%= render :partial => 'panel', :collection => @panels %>
 
-<%= periodically_call_remote(:url => {:action => :refresh}, :with => '"current_id=" + current_id') %>
+<%= periodically_call_remote(:url => refresh_path, :with => '"current_id=" + current_id') %>
 
