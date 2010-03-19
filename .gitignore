@@ -2,6 +2,7 @@ uuid.state
 public/img
 db/development_structure.sql
 db/schema.rb
+db/*.sqlite3
 tmp/*
 coverage*
 log/*
