@@ -19,7 +19,7 @@ function currentPanelsParams() {
     visible_panel = pg.select('.panel').detect(function(p) {
       return p.visible();
     });
-    result.set('panel_groups[' + panel_group_id + ']', /panel_([0-9])+/.exec(visible_panel.id)[1]);
+    result.set('panel_groups[' + panel_group_id + ']', /panel_([0-9]+)/.exec(visible_panel.id)[1]);
   });
   return result;
 }
