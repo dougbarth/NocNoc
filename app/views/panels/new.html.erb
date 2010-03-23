@@ -2,6 +2,7 @@
 
 <% form_for(@panel) do |f| %>
   <%= f.error_messages %>
+  <%= f.hidden_field :panel_group_id %>
 
   <p>
     <%= f.label :name %><br />

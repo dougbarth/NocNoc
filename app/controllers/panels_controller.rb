@@ -3,6 +3,7 @@ class PanelsController < ApplicationController
   # GET /panels.xml
   def index
     @panels = Panel.all
+    @panel_groups = PanelGroup.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +26,7 @@ class PanelsController < ApplicationController
   # GET /panels/new.xml
   def new
     @panel = Panel.new
+    @panel.panel_group = PanelGroup.find(params[:panel_group_id])
 
     respond_to do |format|
       format.html # new.html.erb

@@ -1,23 +1,24 @@
 <h1>Listing panels</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Url</th>
-    <th>Sequence</th>
-  </tr>
+<% @panel_groups.each do |panel_group| -%>
+  <h2><%= panel_group.name %></h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Url</th>
+    </tr>
 
-<% @panels.each do |panel| %>
-  <tr>
-    <td><%=h panel.name %></td>
-    <td><%=h panel.url %></td>
-    <td><%= link_to 'Show', panel %></td>
-    <td><%= link_to 'Edit', edit_panel_path(panel) %></td>
-    <td><%= link_to 'Destroy', panel, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+  <% panel_group.panels.each do |panel| %>
+    <tr>
+      <td><%=h panel.name %></td>
+      <td><%=h panel.url %></td>
+      <td><%= link_to 'Edit', edit_panel_path(panel) %></td>
+      <td><%= link_to 'Destroy', panel, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
 
-<br />
+  <br />
 
-<%= link_to 'New panel', new_panel_path %>
+  <%= link_to 'New panel', new_panel_path(:panel_group_id => panel_group.id) %>
+<% end -%>
