@@ -1,7 +1,5 @@
 @panel_groups.each do |panel_group|
   current_panel = Panel.find(params[:panel_groups][panel_group.id.to_s])
   next_panel = panel_group.next_panel(current_panel)
-  page[dom_id(current_panel)].hide
-  page[dom_id(next_panel)].show
-  page << "refreshPanel('#{dom_id(next_panel)}');"
+  page.replace_html dom_id(panel_group), :partial => 'panel', :object => next_panel
 end
