@@ -1,0 +1,20 @@
+<h1>Listing panel_groups</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @panel_groups.each do |panel_group| %>
+  <tr>
+    <td><%=h panel_group.name %></td>
+    <td><%= link_to 'Show', panel_group %></td>
+    <td><%= link_to 'Edit', edit_panel_group_path(panel_group) %></td>
+    <td><%= link_to 'Destroy', panel_group, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New panel_group', new_panel_group_path %>

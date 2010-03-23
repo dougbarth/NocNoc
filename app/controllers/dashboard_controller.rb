@@ -1,12 +1,10 @@
 class DashboardController < ApplicationController
   def index
-    @panels = Panel.all
-    @initial_panel = Panel.first
+    @panel_groups = PanelGroup.all
     @page_width = params[:page_width].to_i || 0
   end
 
   def refresh
-    @current_panel = Panel.find(params[:current_id])
-    @next_panel = @current_panel.last? ? Panel.first : @current_panel.lower_item
+    @panel_groups = PanelGroup.find(params[:panel_groups].keys)
   end
 end

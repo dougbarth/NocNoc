@@ -1,4 +1,7 @@
-page[dom_id(@current_panel)].hide
-page[dom_id(@next_panel)].show
-page << "current_id = #{@next_panel.id};"
-page << "refreshPanel('#{dom_id(@next_panel)}');"
+@panel_groups.each do |panel_group|
+  current_panel = Panel.find(params[:panel_groups][panel_group.id.to_s])
+  next_panel = panel_group.next_panel(current_panel)
+  page[dom_id(current_panel)].hide
+  page[dom_id(next_panel)].show
+  page << "refreshPanel('#{dom_id(next_panel)}');"
+end

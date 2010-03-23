@@ -3,15 +3,13 @@
   if (page_width != <%= @page_width %>) {
     document.location.href = "?page_width=" + page_width;
   }
-  current_id = <%= @initial_panel.id %>;
-  //new PeriodicalExecuter(refreshPanels, 60);
 <% end -%>
 
 <div class="dashboard">
-  <%= render :partial => 'panel', :collection => @panels %>
+  <%= render :partial => 'panel_group', :collection => @panel_groups %>
 </div>
 
 <%= periodically_call_remote(:url => refresh_path,
-                             :with => '"current_id=" + current_id',
+                             :with => 'currentPanelsParams().toQueryString()',
                              :frequency => 30) %>
 
